@@ -8,7 +8,7 @@ const login= async (req,res)=>{
   try {
     const searchEmail=await User.findOne({email});
     if(!searchEmail) {
-      console.log('el email o contraseñam son incorrectos');
+      console.log('el email o contraseña son incorrectos');
       return res.status(404).json('el email o contraseña son incorrectos');}
     const passwordMatch= await bcrypt.compareSync(password,searchEmail.password);
     if(!passwordMatch){
@@ -26,7 +26,7 @@ const login= async (req,res)=>{
       expiresIn:1200,
     });
 
-    res.status(200).json({msg:'Login exitoso',token});
+    res.status(200).json({message:'Login exitoso',token});
   } catch (error) {
     res.status(500).json(error.message);
     console.log(error);
