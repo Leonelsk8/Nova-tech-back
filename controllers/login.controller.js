@@ -22,7 +22,7 @@ const login= async (req,res)=>{
 
     const token= jwt.sign(payload,process.env.SECRET);
 
-    res.status(200).json({message:'Login exitoso',token, id: searchEmail._id, disabled: searchEmail.disabled});
+    res.status(200).json({message:'Login exitoso',token, id: searchEmail._id, disabled: searchEmail.disabled, lang: searchEmail.lang});
   } catch (error) {
     res.status(500).json(error.message);
     console.log(error);
